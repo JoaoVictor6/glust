@@ -3,8 +3,18 @@ name = "glust"
 version = "0.1.0"
 edition = "2024"
 
+[workspace]
+members = [".", "test-client"]
+
 [dependencies]
 dotenvy = "0.15.7"
 refinery = { version = "0.9.0", features = ["postgres"] }
 sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls"] }
 tokio = { version = "1.49.0", features = ["full"] }
+axum = { version = "0.8.1", features = ["http2"] }
+prost = "0.13"
+opentelemetry-proto = { version = "0.28.0", features = ["gen-tonic", "logs"] }
+tower = { version = "0.5", features = ["util"] }
+bytes = "1.9"
+tracing = "0.1"
+tracing-subscriber = "0.3"
