@@ -1,4 +1,3 @@
-mod adapter;
 mod domain;
 mod ingest;
 mod storage;
