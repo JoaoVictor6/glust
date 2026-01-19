@@ -1,0 +1,12 @@
+[package]
+name = "stress-test"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "generate-payload"
+path = "src/generate_payload.rs"
+
+[dependencies]
+opentelemetry-proto = { version = "0.28.0", features = ["gen-tonic-messages"] }
+prost = "0.13"
