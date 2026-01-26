@@ -13,14 +13,10 @@ pub struct AppState {
 pub async fn logs(State(state): State<AppState>, body: Bytes) -> impl IntoResponse {
     // Attempt to decode the protobuf body
     match ExportLogsServiceRequest::decode(body) {
-        Ok(request) => {
+        Ok(_request) => {
             let _pool = state.pool;
             // Use ? to print the struct (Debug trait)
             // This is "json-like" and safe
-            println!("===============");
-            println!("Received logs payload: {:#?}", request);
-            println!("===============");
-
             StatusCode::OK
         }
         Err(e) => {
