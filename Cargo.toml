@@ -6,9 +6,6 @@ name = "glust"
 version = "0.1.0"
 edition = "2024"
 
-[workspace]
-members = [".", "test-client"]
-
 [dependencies]
 dotenvy = "0.15.7"
 refinery = { version = "0.9.0", features = ["postgres"] }
