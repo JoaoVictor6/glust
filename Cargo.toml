@@ -1,3 +1,6 @@
+[workspace]
+members = ["stress-test"]
+
 [package]
 name = "glust"
 version = "0.1.0"
