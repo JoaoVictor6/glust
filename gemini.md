@@ -120,6 +120,11 @@ Este projeto também tem como objetivo explícito o **aprendizado da linguagem R
 - Tipos permitidos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `ci`
 - Escopos sugeridos: `ingest`, `storage`, `api`, `domain`, `migration`
 
+### 3.7 Ferramentas
+- O agente MUST utilizar o `gh` CLI para consultar contexto do repositório
+- O agente MAY listar issues, PRs e releases para entender decisões passadas
+- O agente MUST assumir que o `gh` já está autenticado e configurado
+
 ### 3.5 Observabilidade interna
 - O projeto SHOULD usar `tracing`
 - Logs internos SHOULD ser estruturados
