@@ -14,6 +14,14 @@ O domínio do projeto é mínimo por design: o foco não está em regras de neg�
 
 > A complexidade do Glust não está no domínio, mas na resistência do sistema.
 
+## Documentação
+
+A documentação completa do projeto encontra-se na pasta [`docs/`](docs/):
+
+- [Introdução e Propósito](docs/intro.md)
+- [Configuração e Execução](docs/setup.md)
+- [Arquitetura e Design](docs/architecture.md)
+
 ---
 
 ## Objetivos
