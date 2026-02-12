@@ -11,8 +11,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let pool = storage::db::Database::create_connection().await;
     println!("Successfully connected to the database!");
 
+    // Run migrations
+    match storage::db::Database::run_migrations(&pool).await {
+        Ok(_) => println!("Migrations ran successfully!"),
+        Err(e) => {
+            tracing::error!("Failed to run migrations: {:?}", e);
+            // Optionally exit or continue based on severity. For now, we log and continue (or panic).
+            // panic!("Database migration failed");
+        }
+    }
+
     // Setup router
     let app = axum::Router::new()
+        .route("/health", axum::routing::get(|| async { "OK" }))
         .route("/v1/logs", axum::routing::post(ingest::http::logs))
         .with_state(ingest::http::AppState { pool });
 

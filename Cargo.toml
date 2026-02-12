@@ -1,5 +1,5 @@
 [workspace]
-members = ["stress-test"]
+members = ["stress-test", "test-client"]
 
 [package]
 name = "glust"
@@ -9,7 +9,7 @@ edition = "2024"
 [dependencies]
 dotenvy = "0.15.7"
 refinery = { version = "0.9.0", features = ["postgres"] }
-sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls"] }
+sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls", "migrate", "chrono", "json"] }
 tokio = { version = "1.49.0", features = ["full"] }
 axum = { version = "0.8.1", features = ["http2"] }
 prost = "0.13"
@@ -18,3 +18,13 @@ tower = { version = "0.5", features = ["util"] }
 bytes = "1.9"
 tracing = "0.1"
 tracing-subscriber = "0.3"
+chrono = { version = "0.4.43", features = ["serde"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+hex = "0.4.3"
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json"] }
+tokio = { version = "1.49.0", features = ["full"] }
+prost = "0.13"
+sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio-rustls", "migrate", "chrono", "json"] }
