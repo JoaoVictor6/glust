@@ -1,5 +1,5 @@
 use opentelemetry_proto::tonic::collector::logs::v1::ExportLogsServiceRequest;
-use opentelemetry_proto::tonic::common::v1::{any_value, AnyValue, KeyValue};
+use opentelemetry_proto::tonic::common::v1::{AnyValue, KeyValue, any_value};
 use opentelemetry_proto::tonic::logs::v1::{LogRecord, ResourceLogs, ScopeLogs};
 use opentelemetry_proto::tonic::resource::v1::Resource;
 use prost::Message;
@@ -61,6 +61,7 @@ fn create_otlp_logs_payload() -> ExportLogsServiceRequest {
         flags: 0,
         trace_id: vec![0u8; 16],
         span_id: vec![0u8; 8],
+        event_name: "stress-test".to_string(),
     };
 
     let scope_logs = ScopeLogs {
@@ -75,7 +76,9 @@ fn create_otlp_logs_payload() -> ExportLogsServiceRequest {
                 KeyValue {
                     key: "service.name".to_string(),
                     value: Some(AnyValue {
-                        value: Some(any_value::Value::StringValue("glust-stress-test".to_string())),
+                        value: Some(any_value::Value::StringValue(
+                            "glust-stress-test".to_string(),
+                        )),
                     }),
                 },
                 KeyValue {
