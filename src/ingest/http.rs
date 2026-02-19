@@ -145,7 +145,7 @@ mod tests {
         request.encode(&mut buf).unwrap();
 
         // Act
-        let response = app
+        let _response = app
             .oneshot(
                 Request::builder()
                     .uri("/v1/logs")
